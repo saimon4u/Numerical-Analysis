@@ -1,7 +1,8 @@
 #include<stdio.h>
+#include<math.h>
 #define E 1e-4
 double calculate(double x){
-    return (x*x*x) + (4*x*x) - 10;
+    return (x*x) - (10*x) + 24;
 }
 int main(){
     double a,b;
@@ -13,7 +14,7 @@ int main(){
             break;
         }
         double mid = (a+b)/2;
-        if(calculate(mid) < E){
+        if(fabs(calculate(mid)) < E){
             printf("The root of this equation is: %lf\n",mid);
             break;
         }
