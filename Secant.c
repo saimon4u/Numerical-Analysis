@@ -6,23 +6,19 @@ double calculate(double x){
 }
 
 
-void bisection(double a,double b){
+void secant(double a,double b){
 	printf("No:	a		b		c		f(a)		f(b)		f(c)\n");
     int i = 1;
     while(1){
-        if((calculate(a)*calculate(b)) >= 0){
-            printf("Solution doesn't exists!\n");
-            break;
-        }
-        double mid = (a+b)/2;
+        double mid = b - ((calculate(b)*(b-a))/(calculate(b)-calculate(a)));
         printf("%d	%lf	%lf	%lf	%lf	%lf	%lf\n",i,a,b,mid,calculate(a),calculate(b),calculate(mid));
         if(fabs(calculate(mid)) < E){
             printf("The root of this equation is: %lf\n",mid);
             break;
         }
-        if((calculate(a)*calculate(mid)) < 0)b = mid;
-        else a = mid;
-    	i++;
+        a = b;
+        b = mid;
+        i++;
     }
 }
 
@@ -31,6 +27,6 @@ int main(){
     double a,b;
     printf("Enter the end points: ");
     scanf("%lf %lf",&a,&b);
-    bisection(a,b);
+    secant(a,b);
     return 0;
 }
