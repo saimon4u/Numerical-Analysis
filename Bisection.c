@@ -22,7 +22,7 @@ void bisection(double a,double b){
             printf("[%lf,%lf]: Root = %lf\n",a,b,mid);
             break;
         }
-        if((calculate(a)*calculate(mid)) < 0)b = mid;
+        if((f(a)*f(mid)) < 0)b = mid;
         else a = mid;
     	i++;
     }
