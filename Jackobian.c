@@ -2,7 +2,7 @@
 #include<stdbool.h>
 #include<math.h>
 #define eps 10e-3
-int eqn[3][4] = {
+double eqn[3][4] = {
     {20,1,-2,17},
     {3,20,-1,-18},
     {2,-3,20,25}
