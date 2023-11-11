@@ -84,6 +84,18 @@ int main(){
         double angle = (.5)*atan((D[p][q])/(D[q][q]-D[p][p]));
         double ctheta = cos(angle);
         double stheta = sin(angle);
+
+
+        /*
+        format of rotation matrix R
+
+            cos    -sin
+        R = 
+            sin    cos
+        
+        
+        */
+
         R[0][0] = ctheta;
         R[0][1] = stheta*(-1);
         R[1][0] = stheta;
@@ -93,7 +105,12 @@ int main(){
         updateD();
         matrixMultiplication(N,N,N,N,D,R);
         updateD();
+
+//  format of D = RT*D*R
+
         updateS(R);
+
+//  format of S = S*RT
     }
     printf("Eigen values are: %lf   %lf\n\n",D[0][0],D[1][1]);
     printf("Corresponding EigenVectores are: \n\n");
