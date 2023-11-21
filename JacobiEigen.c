@@ -80,7 +80,7 @@ int main(){
                 }
             }
         }
-        if(fabs(D[p][q])<eps) break;
+        if(fabs(D[p][q]) < eps) break;
         double angle = (.5)*atan((D[p][q])/(D[q][q]-D[p][p]));
         double ctheta = cos(angle);
         double stheta = sin(angle);
@@ -100,6 +100,14 @@ int main(){
         R[0][1] = stheta*(-1);
         R[1][0] = stheta;
         R[1][1] = ctheta;
+        // for(int i=0; i<N; i++){
+        //     for(int j=0; j<N; j++){
+        //         R[p][p] = ctheta;
+        //         R[q][q] = ctheta;
+        //         R[p][q] = stheta*(-1);
+        //         R[q][p] = stheta;
+        //     }
+        // }
         generateRT(R);
         matrixMultiplication(N,N,N,N,RT,D);
         updateD();
